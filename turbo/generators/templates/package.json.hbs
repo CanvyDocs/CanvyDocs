@@ -1,0 +1,10 @@
+{ "name":"@canvydocs/{{name}}", "private":true, "version":"0.1.0", "exports":{
+".":"./index.ts" }, "typesVersions":{ "*":{ "*":[ "src/*" ] } }, "scripts":{
+"clean":"rm -rf .turbo node_modules", "lint":"eslint .", "format":"prettier
+--check \"**/*.{mjs,ts,md,json}\"", "typecheck":"tsc --noEmit" },
+"dependencies":{ }, "devDependencies":{
+"@canvydocs/eslint-config":"workspace:*",
+"@canvydocs/prettier-config":"workspace:*",
+"@canvydocs/typescript-config":"workspace:*", "eslint":"8.57.0",
+"typescript":"5.4.5" }, "eslintConfig":{ "extends":[
+"@canvydocs/eslint-config/base" ] }, "prettier":"@canvydocs/prettier-config" }

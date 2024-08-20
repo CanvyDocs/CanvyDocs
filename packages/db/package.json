@@ -1,0 +1,50 @@
+{
+  "name": "@canvydocs/db",
+  "version": "0.1.0",
+  "private": true,
+  "exports": {
+    ".": "./index.ts"
+  },
+  "main": "./index.ts",
+  "types": "./index.ts",
+  "scripts": {
+    "clean": "rm -rf .turbo node_modules",
+    "lint": "eslint .",
+    "format": "prisma format && prettier --check '**/*.{ts,json}' ",
+    "db:generate": "prisma generate",
+    "db:push": "bun with-env prisma db push --skip-generate",
+    "typecheck": "tsc --noEmit",
+    "with-env": "dotenv -e ../../.env.local --"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.45.1",
+    "@vercel/postgres-kysely": "0.8.0",
+    "kysely": "^0.27.4",
+    "kysely-postgres-js": "^2.0.0",
+    "pg": "^8.12.0"
+  },
+  "devDependencies": {
+    "@canvydocs/eslint-config": "workspace:*",
+    "@canvydocs/prettier-config": "workspace:*",
+    "@canvydocs/typescript-config": "workspace:*",
+    "@types/pg": "8.11.0",
+    "dotenv-cli": "7.3.0",
+    "eslint": "8.57.0",
+    "kysely-supabase": "^0.2.0",
+    "prettier": "3.2.5",
+    "prisma": "5.9.1",
+    "prisma-kysely": "1.7.1",
+    "supabase": "^1.187.10",
+    "typescript": "5.4.5"
+  },
+  "eslintConfig": {
+    "root": true,
+    "extends": [
+      "@canvydocs/eslint-config/base"
+    ],
+    "rules": {
+      "@typescript-eslint/consistent-type-definitions": "off"
+    }
+  },
+  "prettier": "@canvydocs/prettier-config"
+}

@@ -1,0 +1,33 @@
+{
+  "name": "@canvydocs/auth-proxy",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "clean": "rm -rf .turbo node_modules",
+    "lint": "eslint",
+    "format": "prettier --write '**/*.{js,cjs,mjs,ts,tsx,md,json}'  --ignore-path .prettierignore",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@auth/core": "0.31.0"
+  },
+  "devDependencies": {
+    "@canvydocs/eslint-config": "workspace:*",
+    "@canvydocs/prettier-config": "workspace:*",
+    "@canvydocs/tailwind-config": "workspace:*",
+    "@canvydocs/typescript-config": "workspace:*",
+    "@types/node": "20.12.12",
+    "eslint": "8.57.0",
+    "h3": "1.11.1",
+    "nitropack": "2.9.6",
+    "prettier": "3.2.5",
+    "typescript": "5.4.5"
+  },
+  "eslintConfig": {
+    "root": true,
+    "extends": [
+      "@canvydocs/eslint-config/base"
+    ]
+  },
+  "prettier": "@canvydocs/prettier-config"
+}

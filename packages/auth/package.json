@@ -1,0 +1,38 @@
+{
+  "name": "@canvydocs/auth",
+  "version": "0.1.0",
+  "private": true,
+  "main": "./index.ts",
+  "types": "./index.ts",
+  "scripts": {
+    "clean": "rm -rf .turbo node_modules",
+    "lint": "eslint .",
+    "format": "prettier --check '**/*.{mjs,ts,json}' ",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@auth/kysely-adapter": "0.4.2",
+    "@canvydocs/db": "workspace:*",
+    "@t3-oss/env-nextjs": "0.8.0",
+    "next": "14.2.5",
+    "next-auth": "4.24.7",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "zod": "3.22.4"
+  },
+  "devDependencies": {
+    "@canvydocs/eslint-config": "workspace:*",
+    "@canvydocs/prettier-config": "workspace:*",
+    "@canvydocs/typescript-config": "workspace:*",
+    "eslint": "8.57.0",
+    "prettier": "3.2.5",
+    "typescript": "5.4.5"
+  },
+  "eslintConfig": {
+    "root": true,
+    "extends": [
+      "@canvydocs/eslint-config/base"
+    ]
+  },
+  "prettier": "@canvydocs/prettier-config"
+}

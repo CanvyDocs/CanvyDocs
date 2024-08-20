@@ -1,0 +1,54 @@
+{
+  "name": "@canvydocs/api",
+  "version": "0.1.0",
+  "private": true,
+  "exports": {
+    ".": "./src/index.ts",
+    "./env": "./src/env.mjs",
+    "./edge": "./src/edge.ts",
+    "./lambda": "./src/lambda.ts",
+    "./transformer": "./src/transformer.ts",
+    "./resend": "./src/email.ts",
+    "./MagicLinkEmail": "./src/emails/magic-link-email.tsx",
+    "./subscriptions": "./src/subscriptions.ts"
+  },
+  "typesVersions": {
+    "*": {
+      "*": [
+        "src/*"
+      ]
+    }
+  },
+  "scripts": {
+    "clean": "rm -rf .turbo node_modules",
+    "format": "prettier --check '**/*.{ts,mjs}' ",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@canvydocs/auth": "workspace:*",
+    "@canvydocs/db": "workspace:*",
+    "@trpc/client": "10.44.1",
+    "@trpc/server": "10.44.1",
+    "@t3-oss/env-nextjs": "0.8.0",
+    "superjson": "2.2.1",
+    "dinero.js": "2.0.0-alpha.14",
+    "@dinero.js/currencies": "2.0.0-alpha.14",
+    "zod": "3.22.4",
+    "zod-form-data": "2.0.2"
+  },
+  "devDependencies": {
+    "@canvydocs/eslint-config": "workspace:*",
+    "@canvydocs/prettier-config": "workspace:*",
+    "@canvydocs/typescript-config": "workspace:*",
+    "eslint": "8.57.0",
+    "prettier": "3.2.5",
+    "typescript": "5.4.5"
+  },
+  "eslintConfig": {
+    "root": true,
+    "extends": [
+      "@canvydocs/eslint-config/base"
+    ]
+  },
+  "prettier": "@canvydocs/prettier-config"
+}
