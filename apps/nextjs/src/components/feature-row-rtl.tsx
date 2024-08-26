@@ -27,8 +27,8 @@ function FeatureRowRTL() {
             </p>
 
             <a
-              href="https://"
-              title=""
+              href="https://elt.to/CanvyDocs/f/early-access"
+              title="request early access"
               className="font-pj mt-8 inline-flex items-center font-bold text-gray-900"
             >
               Request early access

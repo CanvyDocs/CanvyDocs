@@ -27,7 +27,7 @@ function FeatureRow() {
             </p>
 
             <a
-              href="https://"
+              href="https://elt.to/CanvyDocs/f/early-access"
               title=""
               className="font-pj mt-8 inline-flex items-center font-bold text-gray-900"
             >
