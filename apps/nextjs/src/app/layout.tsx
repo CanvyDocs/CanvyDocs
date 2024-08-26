@@ -3,6 +3,7 @@ import localFont from "next/font/local";
 
 import "~/styles/globals.css";
 
+import { Suspense } from "react";
 import { NextDevtoolsProvider } from "@next-devtools/core";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
@@ -13,6 +14,7 @@ import { Toaster } from "@canvydocs/ui/toaster";
 import { TailwindIndicator } from "~/components/tailwind-indicator";
 import { ThemeProvider } from "~/components/theme-provider";
 import { i18n } from "~/config/i18n-config";
+import { PostHogPageview } from "~/config/providers";
 import { siteConfig } from "~/config/site";
 
 // import { Suspense } from "react";
@@ -79,9 +81,9 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head />
-      {/*<Suspense>*/}
-      {/*  <PostHogPageview />*/}
-      {/*</Suspense>*/}
+      <Suspense>
+        <PostHogPageview />
+      </Suspense>
       <body
         className={cn(
           "font-heading min-h-screen overflow-x-hidden bg-background antialiased",
