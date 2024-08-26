@@ -15,8 +15,8 @@
   <a href="https://github.com/canvydocs/canvydocs/blob/main/CONTRIBUTING.md">
     <img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg" alt="PRs welcome!" />
   </a>
-  <a href="https://discord.gg/canvydocs">
-    <img src="https://img.shields.io/discord/1234567890?color=7289da&label=discord&logo=discord&logoColor=white" alt="Discord Chat" />
+  <a href="https://discord.gg/Jn44PE98">
+    <img src="https://img.shields.io/discord/1275590241926774856?color=7289da&label=discord&logo=discord&logoColor=white" alt="Discord Chat" />
   </a>
 </p>
 
@@ -56,17 +56,7 @@ Join us in creating the next generation of open collaboration infrastructure.
 - 💳 [Stripe](https://stripe.com/) - Payments
 - 🚀 [Vercel](https://vercel.com/) - Hosting
 
-## Getting Started
-
-### Prerequisites
-
-Make sure you have [Bun](https://bun.sh/) installed:
-
-## Getting Started
-
-### Prerequisites
-
-Make sure you have [Bun](https://bun.sh/) installed:
+## Getting Started (Coming soon)
 
 ### Prerequisites
 
