@@ -7,7 +7,7 @@ import { cn } from "@canvydocs/ui";
 import { buttonVariants } from "@canvydocs/ui/button";
 import * as Icons from "@canvydocs/ui/icons";
 
-import { UserAuthForm } from "~/components/user-auth-form";
+// import { UserAuthForm } from "~/components/user-auth-form";
 import type { Locale } from "~/config/i18n-config";
 import { getDictionary } from "~/lib/get-dictionary";
 
@@ -41,20 +41,47 @@ export default async function LoginPage({
       <div className="mx-auto flex w-full flex-col justify-center space-y-6 sm:w-[350px]">
         <div className="flex flex-col space-y-2 text-center">
           <Image
-            src="/images/avatars/canvydocs-logo.svg"
+            src="/logo.svg"
             className="mx-auto"
-            width="64"
-            height="64"
+            width="120"
+            height="120"
             alt=""
           />
-          <h1 className="text-2xl font-semibold tracking-tight">
+          {/* <h1 className="text-2xl font-semibold tracking-tight">
             {dict.login.welcome_back}
           </h1>
           <p className="text-sm text-muted-foreground">
             {dict.login.signin_title}
+          </p> */}
+
+          <h1 className="text-2xl font-semibold tracking-tight">
+            Request early access
+          </h1>
+          <p className="text-sm text-muted-foreground">
+            CanvyDocs is in very early development, please request early access
+            below to get invited to private beta.
           </p>
+          <a
+            href="https://elt.to/CanvyDocs/f/early-access"
+            title=""
+            className="font-pj just mt-8 flex items-center justify-center font-bold text-gray-900"
+          >
+            Request early access
+            <svg
+              className="ml-2 h-5 w-5"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+            >
+              <path
+                fillRule="evenodd"
+                d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z"
+                clipRule="evenodd"
+              />
+            </svg>
+          </a>
         </div>
-        <UserAuthForm lang={lang} dict={dict.login} />
+        {/* <UserAuthForm lang={lang} dict={dict.login} />
         <p className="px-8 text-center text-sm text-muted-foreground">
           <Link
             href={`/${lang}/register`}
@@ -62,7 +89,7 @@ export default async function LoginPage({
           >
             {dict.login.singup_title}
           </Link>
-        </p>
+        </p> */}
       </div>
     </div>
   );
