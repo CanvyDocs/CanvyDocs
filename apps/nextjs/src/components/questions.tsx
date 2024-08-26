@@ -23,9 +23,9 @@ export function FAQs({
   return (
     <section className="container max-w-3xl py-2">
       <div className="mb-14 space-y-6 text-center">
-        <h1 className="font-heading text-4xl font-[500] leading-tight text-black lg:text-7xl">
+        <h3 className="font-heading text-4xl font-[500] leading-tight text-black lg:text-7xl">
           <Balancer>{dict.faq}</Balancer>
-        </h1>
+        </h3>
         <p className="text-xl text-muted-foreground">
           <Balancer>{dict.faq_detail}</Balancer>
         </p>

@@ -148,11 +148,14 @@ export default {
 } satisfies Config;
 
 function addVariablesForColors({ addBase, theme }: any) {
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-call
   const allColors = flattenColorPalette(theme("colors"));
   const newVars = Object.fromEntries(
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
     Object.entries(allColors).map(([key, val]) => [`--${key}`, val]),
   );
 
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-call
   addBase({
     ":root": newVars,
   });

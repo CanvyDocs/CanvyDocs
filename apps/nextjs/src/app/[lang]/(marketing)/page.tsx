@@ -7,6 +7,7 @@ import Image from "next/image";
 import { FollowerPointerCard } from "@canvydocs/ui/following-pointer";
 
 import { Badge } from "~/components/badge";
+import FeatureRow from "~/components/feature-row";
 import { FAQs } from "~/components/questions";
 
 const Lightbox = dynamic(() => import("~/components/lightbox"));
@@ -91,6 +92,7 @@ export default function IndexPage() {
           </div>
         </div>
       </section>
+      <FeatureRow />
       <FAQs
         params={{
           lang: "en",
