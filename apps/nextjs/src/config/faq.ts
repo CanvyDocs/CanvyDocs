@@ -14,9 +14,9 @@ export const FAQItems: Record<string, FAQType[]> = {
     },
     {
       id: "q-2",
-      question: "Is CanyvDocs for me?",
+      question: "Is CanvyDocs for me?",
       answer:
-        "Yes, CanyvDocs is for teams of all sizes and individuals. If you looking to do some planning on a whiteboard, wireframing or keeping track of tasks on a kanban, open and work on multiple docs/wikis on an infinite canvas, you will get a lot of value from CanvyDocs.",
+        "Yes, CanvyDocs is for teams of all sizes and individuals. If you looking to do some planning on a whiteboard, wireframing or keeping track of tasks on a kanban, open and work on multiple docs/wikis on an infinite canvas, you will get a lot of value from CanvyDocs.",
     },
     {
       id: "q-3",
