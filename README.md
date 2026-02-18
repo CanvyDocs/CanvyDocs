@@ -56,55 +56,140 @@ Join us in creating the next generation of open collaboration infrastructure.
 - 💳 [Stripe](https://stripe.com/) - Payments
 - 🚀 [Vercel](https://vercel.com/) - Hosting
 
-## Getting Started (Coming soon)
+## Getting Started
 
 ### Prerequisites
 
-Make sure you have [Bun](https://bun.sh/) installed:
-
-Make sure you have bun installed
+- [Bun](https://bun.sh/) (>= 1.1.10)
+- [PostgreSQL](https://www.postgresql.org/) (>= 14)
+- [Node.js](https://nodejs.org/) (>= 18)
 
 ```bash
+# Install Bun if needed
+curl -fsSL https://bun.sh/install | bash
+
+# Verify
 bun --version
-# if not installed, follow the instructions here: https://bun.sh/docs/installation
 ```
 
-### Setup
-
-Follow these steps to set up your project:
-
-1. Set up the environment variables:
+### 1. Clone and install
 
 ```bash
-cp .env.example .env.local
-
+git clone https://github.com/Emilien-Etadam/CanvyDocs.git
+cd CanvyDocs
+bun install
 ```
 
-2. Run the development server:
+`bun install` runs a `postinstall` script that creates workspace symlinks automatically. If you ever see `Module not found: @canvydocs/*` errors, run `bun install` again or `node scripts/fix-workspace-links.mjs` manually.
+
+### 2. Set up PostgreSQL
+
+```bash
+# Create a user and database (adapt to your setup)
+sudo -u postgres createuser --superuser YOUR_USER
+sudo -u postgres psql -c "ALTER USER YOUR_USER PASSWORD 'YOUR_PASSWORD';"
+sudo -u postgres createdb canvydocs -O YOUR_USER
+```
+
+### 3. Configure environment variables
+
+Create a `.env.local` file at the project root:
+
+```bash
+# Database
+POSTGRES_URL='postgresql://YOUR_USER:YOUR_PASSWORD@localhost:5432/canvydocs'
+POSTGRES_DIRECT_URL='postgresql://YOUR_USER:YOUR_PASSWORD@localhost:5432/canvydocs'
+
+# App
+NEXT_PUBLIC_APP_URL='http://localhost:3000'
+IS_DEBUG=true
+
+# Auth
+NEXTAUTH_SECRET='generate-a-random-secret-here'
+NEXTAUTH_URL='http://localhost:3000'
+
+# Stripe (use dummy values for local dev without payments)
+STRIPE_API_KEY='sk_test_dummy'
+STRIPE_WEBHOOK_SECRET='whsec_dummy'
+
+# Resend (use dummy values for local dev without emails)
+RESEND_API_KEY='re_dummy'
+RESEND_FROM='noreply@localhost'
+
+# PostHog (optional)
+NEXT_PUBLIC_POSTHOG_KEY='phc_dummy'
+NEXT_PUBLIC_POSTHOG_HOST='https://app.posthog.com'
+```
+
+### 4. Push the database schema
+
+```bash
+bun run db:push
+```
+
+### 5. Start the development server
 
 ```bash
 bun run dev:web
 ```
 
-3. Open [http://localhost:3000](http://localhost:3000) in your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-4. (Optional)Install tailwind config viewer: `bun run tailwind-config-viewer` Open [http://localhost:3333](http://localhost:3333) in your browser to see your Tailwind CSS configuration
+### Troubleshooting
 
-## 📦 Apps and Packages
+**`Module not found: @canvydocs/*`**
+Bun may not create workspace symlinks on some platforms (notably WSL2). Run:
+```bash
+node scripts/fix-workspace-links.mjs
+```
 
-- `web`: The main Next.js application
-- `ui`: Shared UI components
-- `db`: Database schema and utilities
-- `auth`: Authentication utilities
-- `email`: Email templates and utilities
+**`Invalid environment variables`**
+Check that all required variables are set in `.env.local`. The env validation files are:
+- `apps/nextjs/src/env.mjs`
+- `packages/auth/env.mjs`
+- `packages/api/src/env.mjs`
+- `packages/common/src/env.mjs`
+- `packages/stripe/src/env.mjs`
+
+**`check-dependency-version-consistency` errors**
+This check is no longer in `postinstall` by default. You can still run it manually with `bun run check-deps`.
+
+**Tailwind config viewer (optional)**
+```bash
+bun run tailwind-config-viewer
+```
+Open [http://localhost:3333](http://localhost:3333).
+
+## Apps and Packages
+
+| Directory | Package | Description |
+|---|---|---|
+| `apps/nextjs` | `@canvydocs/nextjs` | Main Next.js web application |
+| `apps/auth-proxy` | `@canvydocs/auth-proxy` | Authentication proxy service |
+| `packages/api` | `@canvydocs/api` | tRPC API routers |
+| `packages/auth` | `@canvydocs/auth` | Authentication (NextAuth.js + Kysely) |
+| `packages/common` | `@canvydocs/common` | Shared utilities and email templates |
+| `packages/db` | `@canvydocs/db` | Database schema (Prisma + Kysely) |
+| `packages/stripe` | `@canvydocs/stripe` | Stripe billing integration |
+| `packages/ui` | `@canvydocs/ui` | Shared UI components (Radix + shadcn/ui) |
+| `tooling/*` | `@canvydocs/*-config` | ESLint, Prettier, Tailwind, TypeScript configs |
 
 ## Self Hosting
 
-Self hosting docs coming soon
+Self hosting docs coming soon.
 
-## Developer setup
+## Developer Setup
 
-Coming soon
+The project uses [Turborepo](https://turbo.build/repo) to orchestrate the monorepo. Useful commands:
+
+```bash
+bun run dev:web    # Start the web app (excludes Stripe listener)
+bun run dev        # Start all packages in dev mode
+bun run build      # Build all packages
+bun run lint       # Lint all packages
+bun run typecheck  # Type-check all packages
+bun run db:push    # Push Prisma schema to the database
+```
 
 ## Discord
 
