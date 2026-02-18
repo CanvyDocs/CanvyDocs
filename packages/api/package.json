@@ -27,12 +27,15 @@
   "dependencies": {
     "@canvydocs/auth": "workspace:*",
     "@canvydocs/db": "workspace:*",
+    "@canvydocs/stripe": "workspace:*",
     "@trpc/client": "10.44.1",
     "@trpc/server": "10.44.1",
     "@t3-oss/env-nextjs": "0.8.0",
     "superjson": "2.2.1",
     "dinero.js": "2.0.0-alpha.14",
     "@dinero.js/currencies": "2.0.0-alpha.14",
+    "next": "14.2.5",
+    "next-auth": "4.24.7",
     "zod": "3.22.4",
     "zod-form-data": "2.0.2"
   },

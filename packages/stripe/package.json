@@ -24,7 +24,8 @@
   "dependencies": {
     "@canvydocs/db": "workspace:*",
     "@t3-oss/env-nextjs": "0.8.0",
-    "stripe": "14.15.0"
+    "stripe": "14.15.0",
+    "zod": "3.22.4"
   },
   "devDependencies": {
     "@canvydocs/eslint-config": "workspace:*",

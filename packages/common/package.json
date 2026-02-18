@@ -22,7 +22,9 @@
   },
   "dependencies": {
     "@canvydocs/ui": "workspace:*",
-    "resend": "2.1.0"
+    "@t3-oss/env-nextjs": "0.8.0",
+    "resend": "2.1.0",
+    "zod": "3.22.4"
   },
   "devDependencies": {
     "@canvydocs/eslint-config": "workspace:*",
